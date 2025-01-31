@@ -6,6 +6,8 @@ let resultadoAmigoSorteado = document.getElementById("resultado");
 function agregarAmigo() {
     // validar que el input no esté vacío
     if (inputAmigo.value === "") return alert("Debes ingresar un nombre de amigo");
+     // validar que el input solo contenga letras y espacios
+    if (!/^[a-zA-Z\s]+$/.test(inputAmigo.value)) return alert("El nombre del amigo solo puede contener letras y espacios");
     // crear un elemento li y agregarle el valor del input
     let amigo = document.createElement("li");
     // agregar el elemento li a la lista de amigos
@@ -18,6 +20,8 @@ function agregarAmigo() {
 
 function sortearAmigo() {
     let amigos = Array.from(listaDeAmigos.children);
+     //validar si hay amigos para sortear
+    if (amigos.length === 0) return alert("No hay amigos para sortear");
     //sortear un amigo
     let amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
     console.log(amigoSorteado);
