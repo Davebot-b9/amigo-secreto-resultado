@@ -15,3 +15,12 @@ function agregarAmigo() {
     inputAmigo.value = "";
     console.log(listaDeAmigos);
 }
+
+function sortearAmigo() {
+    let amigos = Array.from(listaDeAmigos.children);
+    //sortear un amigo
+    let amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
+    console.log(amigoSorteado);
+    //mostrar el amigo sorteado
+    resultadoAmigoSorteado.textContent = `El amigo secreto es: ${amigoSorteado.textContent}`;
+}
