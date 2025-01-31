@@ -2,3 +2,16 @@
 let listaDeAmigos = document.getElementById("listaAmigos");
 let inputAmigo = document.getElementById("amigo");
 let resultadoAmigoSorteado = document.getElementById("resultado");
+
+function agregarAmigo() {
+    // validar que el input no esté vacío
+    if (inputAmigo.value === "") return alert("Debes ingresar un nombre de amigo");
+    // crear un elemento li y agregarle el valor del input
+    let amigo = document.createElement("li");
+    // agregar el elemento li a la lista de amigos
+    amigo.textContent = inputAmigo.value;
+    listaDeAmigos.appendChild(amigo);
+    // limpiar el input
+    inputAmigo.value = "";
+    console.log(listaDeAmigos);
+}
