@@ -23,7 +23,11 @@
                 <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre">
                 <button class="button-add" onclick="agregarAmigo();">Agregar</button>
             </div>
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
+            <div class="friend-container hidden">
+                <h2 class="section-title">Lista de amigos</h2>
+                <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
+                <button class="button-remove" onclick="eliminarAmigo();">Eliminar amigo</button>
+            </div>
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
             <div class="button-container">

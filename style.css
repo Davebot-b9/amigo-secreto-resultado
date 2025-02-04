@@ -87,6 +87,21 @@ body {
     font-size: 16px;
 }
 
+.friend-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friend-container .section-title,
+.friend-container .button-remove {
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
 .button-container {
     width: 300px;
     justify-content: center;
