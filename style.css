@@ -90,6 +90,11 @@ body {
 .button-container {
     width: 300px;
     justify-content: center;
+    display: flex;
+}
+
+.button-container button {
+    margin: 0 10px;
 }
 
 /* Estilos de entrada de texto */
@@ -159,4 +164,23 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+
+.button-reset {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px 10px 30px;
+    color: var(--color-white);
+    background-color: #a5b815;
+    font-size: 16px;
+}
+
+.button-reset img {
+    margin-right: 40px;
+}
+
+.button-reset:hover {
+    background-color: #8c9c0f;
 }

@@ -8,6 +8,10 @@ function agregarAmigo() {
     if (inputAmigo.value === "") return alert("Debes ingresar un nombre de amigo");
      // validar que el input solo contenga letras y espacios
     if (!/^[a-zA-Z\s]+$/.test(inputAmigo.value)) return alert("El nombre del amigo solo puede contener letras y espacios");
+    // validar que el amigo no esté repetido
+    if (Array.from(listaDeAmigos.children).some((amigo) => amigo.textContent === inputAmigo.value)) return alert("El amigo ya fue agregado");
+    // validar que tenga al menos 3 caracteres el inputAmigo
+    if (inputAmigo.value.length < 3) return alert("El nombre del amigo debe tener al menos 3 caracteres");
     // crear un elemento li y agregarle el valor del input
     let amigo = document.createElement("li");
     // agregar el elemento li a la lista de amigos
@@ -27,4 +31,12 @@ function sortearAmigo() {
     console.log(amigoSorteado);
     //mostrar el amigo sorteado
     resultadoAmigoSorteado.textContent = `El amigo secreto es: ${amigoSorteado.textContent}`;
+}
+
+function resetearLista(){
+    //validar si hay amigos para eliminar
+    if (listaDeAmigos.children.length === 0) return alert("No hay amigos para resetear la lista");
+    //limpiar la lista de amigos
+    listaDeAmigos.innerHTML = "";
+    resultadoAmigoSorteado.textContent = "";
 }
