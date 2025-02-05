@@ -1,6 +1,7 @@
 # Amigo Secreto
 
 Este proyecto es una aplicación web que permite a los usuarios ingresar nombres de amigos en una lista para luego realizar un sorteo aleatorio y determinar quién es el "amigo secreto".
+https://davebot-b9.github.io/amigo-secreto-resultado/
 
 ## Funcionalidades
 
