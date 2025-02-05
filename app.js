@@ -52,9 +52,9 @@ function sortearAmigo() {
     mostrarMensaje("Hemos sorteado a tu amigo secreto");
     //mostrar el amigo sorteado
     resultadoAmigoSorteado.textContent = `El amigo secreto es: ${amigoSorteado.textContent}`;
+    document.getElementById('seccionListaAmigo').style.display = 'none';
     // si ya se sorteó, deshabilitar el botón de sortear
     disableButtonReset('botonSortear');
-    // actualizarVisibilidadContenedor();
 }
 
 function eliminarAmigo() {
