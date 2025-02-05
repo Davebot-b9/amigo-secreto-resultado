@@ -52,6 +52,8 @@ function sortearAmigo() {
     mostrarMensaje("Hemos sorteado a tu amigo secreto");
     //mostrar el amigo sorteado
     resultadoAmigoSorteado.textContent = `El amigo secreto es: ${amigoSorteado.textContent}`;
+    // si ya se sorteó, deshabilitar el botón de sortear
+    disableButtonReset('botonSortear');
     // actualizarVisibilidadContenedor();
 }
 
@@ -80,11 +82,23 @@ function resetearLista(){
     resultadoAmigoSorteado.textContent = "";
     //mostrar el mesaje original
     mostrarMensaje("Digite el nombre de sus amigos");
+    enableButtonReset('botonSortear');
     actualizarVisibilidadContenedor();
+}
+
+function enableButtonReset(id){
+    // habilitar el botón de sortear
+    document.getElementById(id).disabled = false;
+}
+
+function disableButtonReset(id){
+    // deshabilitar el botón de sortear
+    document.getElementById(id).disabled = true;
 }
 
 function mostrarMensaje(texto){
     mensaje.textContent = texto;
 }
 
+enableButtonReset('botonSortear');
 actualizarVisibilidadContenedor();
