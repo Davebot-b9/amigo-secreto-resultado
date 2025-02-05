@@ -3,22 +3,36 @@ let listaDeAmigos = document.getElementById("listaAmigos");
 let inputAmigo = document.getElementById("amigo");
 let resultadoAmigoSorteado = document.getElementById("resultado");
 let friendContainer = document.querySelector(".friend-container");
+let mensaje = document.getElementById("mensaje");
 
 function agregarAmigo() {
     // validar que el input no esté vacío
-    if (inputAmigo.value === "") return alert("Debes ingresar un nombre de amigo");
-     // validar que el input solo contenga letras y espacios
-    if (!/^[a-zA-Z]+$/.test(inputAmigo.value)) return alert("El nombre del amigo solo puede contener letras sin espacios");
+    if (inputAmigo.value === "") return mostrarMensaje("Debes ingresar un nombre de amigo");
+    // validar que el input solo contenga letras y espacios
+    if (!/^[a-zA-Z]+$/.test(inputAmigo.value)) return mostrarMensaje("El nombre del amigo solo puede contener letras sin espacios");
     // validar que el amigo no esté repetido
     if (Array.from(listaDeAmigos.children).some((amigo) => amigo.textContent.toLowerCase() === inputAmigo.value.toLowerCase())) {
-        return alert("El amigo ya fue agregado");
+        return mostrarMensaje("El amigo ya fue agregado");
     }
     // validar que tenga al menos 3 caracteres el inputAmigo
-    if (inputAmigo.value.length < 3) return alert("El nombre del amigo debe tener al menos 3 caracteres");
+    if (inputAmigo.value.length < 3) return mostrarMensaje("El nombre del amigo debe tener al menos 3 caracteres");
     // crear un elemento li y agregarle el valor del input
     let amigo = document.createElement("li");
-    // agregar el elemento li a la lista de amigos
     amigo.textContent = inputAmigo.value;
+
+    // crear un botón de eliminar
+    let botonEliminar = document.createElement("button");
+    botonEliminar.innerHTML = '<img src="assets/delete.png" alt="Eliminar">';
+    botonEliminar.classList.add("button-remove");
+    botonEliminar.onclick = function() {
+        listaDeAmigos.removeChild(amigo);
+        actualizarVisibilidadContenedor();
+    };
+
+    // agregar el botón de eliminar al elemento li
+    amigo.appendChild(botonEliminar);
+
+    // agregar el elemento li a la lista de amigos
     listaDeAmigos.appendChild(amigo);
     // limpiar el input
     inputAmigo.value = "";
@@ -29,20 +43,21 @@ function agregarAmigo() {
 function sortearAmigo() {
     let amigos = Array.from(listaDeAmigos.children);
      //validar si hay amigos para sortear
-    if (amigos.length === 0) return alert("No hay amigos para sortear");
+    if (amigos.length === 0) return mostrarMensaje("No hay amigos para sortear");
     // validar que haya más de tres amigos
-    if (amigos.length < 3) return alert("Deben haber al menos 3 amigos para sortear");
+    if (amigos.length < 3) return mostrarMensaje("Deben haber al menos 3 amigos para sortear");
     //sortear un amigo
     let amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
     console.log(amigoSorteado);
+    mostrarMensaje("Hemos sorteado a tu amigo secreto");
     //mostrar el amigo sorteado
     resultadoAmigoSorteado.textContent = `El amigo secreto es: ${amigoSorteado.textContent}`;
-    actualizarVisibilidadContenedor();
+    // actualizarVisibilidadContenedor();
 }
 
 function eliminarAmigo() {
     //validar si hay amigos para eliminar
-    if (listaDeAmigos.children.length === 0) return alert("No hay amigos para eliminar");
+    if (listaDeAmigos.children.length === 0) return mostrarMensaje("No hay amigos para eliminar");
     //eliminar el último amigo
     listaDeAmigos.removeChild(listaDeAmigos.lastChild);
     actualizarVisibilidadContenedor();
@@ -59,11 +74,17 @@ function actualizarVisibilidadContenedor(){
 
 function resetearLista(){
     //validar si hay amigos para eliminar
-    if (listaDeAmigos.children.length === 0) return alert("No hay amigos para resetear la lista");
+    if (listaDeAmigos.children.length === 0) return mostrarMensaje("No hay amigos para resetear la lista");
     //limpiar la lista de amigos
     listaDeAmigos.innerHTML = "";
     resultadoAmigoSorteado.textContent = "";
+    //mostrar el mesaje original
+    mostrarMensaje("Digite el nombre de sus amigos");
     actualizarVisibilidadContenedor();
+}
+
+function mostrarMensaje(texto){
+    mensaje.textContent = texto;
 }
 
 actualizarVisibilidadContenedor();

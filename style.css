@@ -95,7 +95,7 @@ body {
 
 .friend-container .section-title,
 .friend-container .button-remove {
-    margin: 10px 0;
+    margin: 0px 10px;
 }
 
 .hidden {
@@ -198,4 +198,21 @@ ul {
 
 .button-reset:hover {
     background-color: #8c9c0f;
+}
+/* Estilo para los elementos li dentro de la lista de amigos */
+.name-list li {
+    padding: 5px 0; /* Espaciado vertical */
+}
+
+/* Estilo para el botón de eliminar */
+.button-remove {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px; /* Espaciado entre el nombre y el botón */
+}
+
+.button-remove img {
+    width: 20px; /* Ajusta el tamaño del ícono */
+    height: 20px; /* Ajusta el tamaño del ícono */
 }
