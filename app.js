@@ -8,7 +8,7 @@ function agregarAmigo() {
     // validar que el input no esté vacío
     if (inputAmigo.value === "") return alert("Debes ingresar un nombre de amigo");
      // validar que el input solo contenga letras y espacios
-    if (!/^[a-zA-Z\s]+$/.test(inputAmigo.value)) return alert("El nombre del amigo solo puede contener letras y espacios");
+    if (!/^[a-zA-Z]+$/.test(inputAmigo.value)) return alert("El nombre del amigo solo puede contener letras sin espacios");
     // validar que el amigo no esté repetido
     if (Array.from(listaDeAmigos.children).some((amigo) => amigo.textContent.toLowerCase() === inputAmigo.value.toLowerCase())) {
         return alert("El amigo ya fue agregado");
